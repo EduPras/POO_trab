@@ -7,6 +7,6 @@ class Especial: public Conta {
   private:
     double limite;
   public:
-    double sacar(double s) override;
+    double sacar(double s) ;
 };
 #endif
