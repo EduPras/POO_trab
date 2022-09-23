@@ -6,6 +6,7 @@
 class Corrente: public Conta {
   static int taxaDeJurosAnual;
   public:
+    Corrente(double s): Conta(s) {};
     double calcularRendimentoMensal();
     void modificarTaxaDeJuros(int x);
 };

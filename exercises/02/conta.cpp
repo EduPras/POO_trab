@@ -14,9 +14,11 @@ bool Conta::verificacao(double s){
   return true;
 }
 
-void Conta::pix(double s){
+void Conta::pix(double s, Conta* c){
   if(this->verificacao(s)){
     cout << "Pix enviado\n";
+    c->saldo += s;
+    this->saldo -= s;
   }
 }
 
