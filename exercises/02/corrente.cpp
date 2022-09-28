@@ -1,12 +1,20 @@
 #include "corrente.hpp"
+#include <iostream>
 
-int Corrente::taxaDeJurosAnual = 1;
+using namespace std;
 
-double Corrente::calcularRendimentoMensal(){
-  double acrescimo = this->saldo*(this->taxaDeJurosAnual/12);
-  return this->saldo+acrescimo;
+double Corrente::taxaDeJurosAnual = 0.06;
+
+void Corrente::calcularRendimentoMensal(){
+  cout << "\nCalculando rendimento mensal de " <<
+    this->id << " ...\n";
+  double acrescimo = this->saldo*(this->taxaDeJurosAnual/(double)12);
+  this->saldo += acrescimo;
+  cout << "\tNovo saldo: R$: " << this->saldo << endl;
 }
 
 void Corrente::modificarTaxaDeJuros(int x){
-  this->taxaDeJurosAnual = x;
+  taxaDeJurosAnual = (double)x/100;
+  cout << "\nRecalculando taxa de juros anual: \n\tNova taxa: "
+    << taxaDeJurosAnual << "%\n";
 }
