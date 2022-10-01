@@ -18,6 +18,7 @@ class Conta {
     double sacar(double s);
     void pix(double s, Conta* c);
     void deposito(double s);
+    // getters e setters
     double getSaldo(){ return this-> saldo; };
     void setTitular(Titular *t){
       this->titular = t;

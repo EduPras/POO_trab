@@ -1,5 +1,5 @@
 #include <iostream>
-#include "corrente.hpp"
+#include "poupanca.hpp"
 #include "especial.hpp"
 #include "simples.hpp"
 #include "titular.hpp"
@@ -10,8 +10,8 @@
  * Data: 28/09/2022
  * 
  * Comando para compilar no linux:
- * g++ -c conta.cpp corrente.cpp especial.cpp simples.cpp utils.cpp main.cpp
- * g++ conta.o corrente.o especial.o simples.o utils.o main.o -o run
+ * g++ -c conta.cpp poupanca.cpp especial.cpp simples.cpp utils.cpp main.cpp
+ * g++ conta.o poupanca.o especial.o simples.o utils.o main.o -o run
  * ./run
 */
 using namespace std;
@@ -24,16 +24,16 @@ int main(){
     new Titular("Hugo", "9830210", 26),
     new Titular("Beatriz", "892130", 24)
   };
-  Corrente *c1 = new Corrente(2000.0, titulares[0]);
-  Corrente *c2 = new Corrente((double)3000.0, titulares[1]); 
+  Poupanca *c1 = new Poupanca(2000.0, titulares[0]);
+  Poupanca *c2 = new Poupanca((double)3000.0, titulares[1]); 
   Simples *s1 = new Simples(50.0, titulares[2]);
   Especial *e1 = new Especial(300.0, titulares[3]);
   
   // Enviando um pix a partir de uma conta
   // e extrapolando seu valor
-  e1->pix(301.0, c2);
+  e1->pix(301.0, s1);
   // Agora um valor plausível
-  e1->pix(300.0, c2);
+  e1->pix(300.0, s1);
 
   // Realizando um saque com conta especial,
   // que possue limite = 5
@@ -46,16 +46,16 @@ int main(){
   // Calculando exemplo especificado no PDF
   c1->calcularRendimentoMensal();
   c2->calcularRendimentoMensal();
-  Corrente::modificarTaxaDeJuros(8);
+  Poupanca::modificarTaxaDeJuros(8);
   c1->calcularRendimentoMensal();
   c2->calcularRendimentoMensal();
 
   // Mostrando os proprietários das contas
   cout << endl 
-    << c1->getId() << " pertence a " << c1->getTitular()->getName() << endl
-    << c2->getId() << " pertence a " << c2->getTitular()->getName() << endl
-    << s1->getId() << " pertence a " << s1->getTitular()->getName() << endl
-    << e1->getId() << " pertence a " << e1->getTitular()->getName() << endl;
+    << c1->getId() << " pertence a " << c1->getTitular()->getNome() << endl
+    << c2->getId() << " pertence a " << c2->getTitular()->getNome() << endl
+    << s1->getId() << " pertence a " << s1->getTitular()->getNome() << endl
+    << e1->getId() << " pertence a " << e1->getTitular()->getNome() << endl;
 
   // Deletando contas
   cout << endl;

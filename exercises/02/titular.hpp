@@ -16,7 +16,8 @@ class Titular {
     ~Titular(){
       cout << "Titular " << this->nome << " deletado\n";
     }
-    string getName() { return this->nome; };
+    // getters e setters
+    string getNome() { return this->nome; };
     string getCpf() { return this->cpf; };
     int getIdade() { return this->idade; };
 
